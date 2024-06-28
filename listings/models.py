@@ -1,8 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-print("Hello inside models")
-
 class Property(models.Model):
     """blank set to true makes the corresponding form fields not required"""
 
