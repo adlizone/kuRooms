@@ -19,7 +19,7 @@ class SignUp(View):
         if form.is_valid():
             form.save()
 
-            return redirect(success_url)
+            return redirect(self.success_url)
 
         else:
             ctx = {'form': form}
