@@ -22,7 +22,8 @@ class OwnerCreateView(LoginRequiredMixin, CreateView):
     and add the owner to the saved object.
     """
 
-    # Saves the form instance, sets the current object for the view, and redirects to get_success_url().
+    # Saves the form instance, sets the current object for the view, and redirects to get_success_url()
+
     def form_valid(self, form):
         object = form.save(commit=False)
         object.owner = self.request.user
