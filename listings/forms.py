@@ -31,7 +31,7 @@ class PropertyForm(ModelForm):
 
     def clean_contact_2(self):
         data = self.cleaned_data["contact_2"]
-        if not self.is_ten_digit_number(data):
+        if data and not self.is_ten_digit_number(data):
             raise ValidationError("Enter a valid phone number!!!")
         return data
         
