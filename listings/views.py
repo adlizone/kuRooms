@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .models import Property
 from .owner import OwnerListView, OwnerDetailView, OwnerCreateView, OwnerUpdateView, OwnerDeleteView
+from .forms import PropertyForm
 
 class MainView(OwnerListView):
     model = Property
@@ -11,7 +12,7 @@ class MainView(OwnerListView):
 
 class PropertyCreate(OwnerCreateView):
     model = Property
-    fields = ["title", "address", "contact_1", "contact_2"]
+    form_class = PropertyForm
     success_url = reverse_lazy("listings:all")
 
 class PropertyUpdate(OwnerUpdateView):

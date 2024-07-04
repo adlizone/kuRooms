@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django import forms
 
 class Property(models.Model):
     """blank set to true makes the corresponding form fields not required"""
@@ -7,6 +8,14 @@ class Property(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
     address = models.CharField(max_length=200, blank=True)
+    CATEGORIES = {
+        "Boys only": "boys only",
+        "Girls only": "girls only",
+        "Both": "both",
+    }
+    
+    type = models.CharField(max_length=20,choices=CATEGORIES, null=True, blank=True)
+    
     contact_1 = models.CharField(max_length=10)
     contact_2 = models.CharField(max_length=10, blank=True)
 

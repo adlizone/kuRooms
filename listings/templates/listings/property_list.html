@@ -17,7 +17,15 @@
             <div class="property-item">
                 <p><strong>{{ property.title }}</strong></p>
                 <p>{{ property.address }}</p>
+
+                {% if property.type != 'Both' %}
+                	<p>{{ property.type }}</p>  
+                {% endif %}
+
                 <p>{{ property.contact_1 }}</p>
+
+                <p>{{ property.contact_2 }}</p>
+
                 <div class="property-actions">   
                     {% if property.owner == user %}
                        (<a href="{% url 'listings:update' property.id %}">Edit</a> |
