@@ -8,7 +8,7 @@ from .forms import PropertyForm
 
 class MainView(OwnerListView):
     model = Property
-    fields = ["title", "address", "contact_1", "contact_2"]
+    fields = ["title", "address", "contact_1", "contact_2", "rent_per_month"]
 
 class PropertyCreate(OwnerCreateView):
     model = Property
@@ -17,7 +17,7 @@ class PropertyCreate(OwnerCreateView):
 
 class PropertyUpdate(OwnerUpdateView):
     model = Property
-    fields = ["title", "address", "contact_1", "contact_2"]
+    fields = ["title", "address","type" "contact_1", "contact_2", "rent_per_month"]
     success_url = reverse_lazy("listings:all")
 
 class PropertyDelete(OwnerDeleteView):

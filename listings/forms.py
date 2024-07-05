@@ -13,7 +13,7 @@ class PropertyForm(ModelForm):
 
     class Meta:
         model = Property
-        fields = ["title", "type", "address", "contact_1", "contact_2"] 
+        fields = ["title", "type", "address", "contact_1", "contact_2","rent_per_month"] 
 
     def is_ten_digit_number(self, string):
         pattern = r'^\d{10}$'
@@ -34,4 +34,6 @@ class PropertyForm(ModelForm):
         if data and not self.is_ten_digit_number(data):
             raise ValidationError("Enter a valid phone number!!!")
         return data
-        
+     
+    """def clean_rent_per_month(self):
+        pass"""        

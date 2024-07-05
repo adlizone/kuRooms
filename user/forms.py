@@ -14,13 +14,14 @@ class SignUpForm(UserCreationForm):
     password1 = forms.CharField(
         max_length=10,
         widget = forms.PasswordInput,
+        label = "Password",
         help_text = "Your password shoud be at least 8 characters.",
     )
 
     password2 = forms.CharField(
         max_length=10,
         widget = forms.PasswordInput,
-        help_text = "Confirm Password",
+        label = "Repeat Password",
     )
 
     class Meta:

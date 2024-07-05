@@ -28,6 +28,10 @@
                 <p>{{ property.contact_1 }}</p>
 
                 <p>{{ property.contact_2 }}</p>
+                 
+                {% if property.rent_per_month %}
+                    <p>Rent  {{ property.rent_per_month }}  per/m</p>
+                {% endif %}
 
                 <div class="property-actions">   
                     {% if property.owner == user %}
@@ -42,21 +46,7 @@
           <p>There are no properties in the database.</p>
         {% endif %}
         <a href="{% url 'listings:create' %}" class="add-accommodation">Add an Accommodation</a>
-        <div class="login-logout">
-            {% if user.is_authenticated %}
-       
-		<form method="post" action="{% url 'logout' %}?next={% url 'listings:all' %}">
-                    {% csrf_token %}
-                    <button type="submit">logout</button>
-                </form>
-
-            {% else %}
-           
-                  <a href="{% url 'login' %}?next={% url 'listings:all' %}">Login</a>
-                  <a href="{% url 'user:signup' %}">Sign Up</a>
-	     {% endif %}
         </div>
-       </div>
     </body>
    
     <script src={% static "js/navbar.js" %} ></script>    
