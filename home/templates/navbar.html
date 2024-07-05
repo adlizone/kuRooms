@@ -1,0 +1,21 @@
+<!-- navbar.html -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="#" class="navbar-logo">Property Listings</a>
+        <button class="navbar-toggle" id="navbar-toggle">
+            &#9776; <!-- Unicode character for menu icon -->
+        </button>
+        <ul class="navbar-menu" id="navbar-menu">
+            <li class="navbar-item"><a href="#">Home</a></li>
+            <li class="navbar-item"><a href="#">About</a></li>
+            <li class="navbar-item"><a href="#">Listings</a></li>
+            <li class="navbar-item"><a href="#">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li class="navbar-item"><a href="{% url 'logout' %}?next={% url 'listings:all' %}">Logout</a></li>
+            {% else %}
+            <li class="navbar-item"><a href="{% url 'login' %}?next={% url 'listings:all' %}">Login</a></li>
+            <li class="navbar-item"><a href="{% url 'user:signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

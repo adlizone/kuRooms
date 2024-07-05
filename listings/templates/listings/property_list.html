@@ -6,11 +6,14 @@
     <title>Property Listings</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'listings/main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 </head>
 <body>
+   
+   {% include 'navbar.html' %}
+   
     <div class="container">
         {% block content %}
-        <h1>Accommodations</h1>
         {% if property_list %}
         <div class="property-grid">
           {% for property in property_list %}
@@ -55,4 +58,7 @@
         </div>
        </div>
     </body>
+   
+    <script src={% static "js/navbar.js" %} ></script>    
+
 {% endblock %}
