@@ -1,0 +1,132 @@
+/* Overall page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f7;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.signup-container {
+    max-width: 500px;
+    margin: 100px auto; /* Added margin to push the container down from the navbar */
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Form title */
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Form elements */
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form fields */
+.signup-container form div[class^="mb-3"] {
+    margin-bottom: 15px;
+}
+
+.signup-container form label[class="form-label"] {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.signup-container form input[type="text"],
+.signup-container form input[type="password"],
+.signup-container form input[type="email"],
+.signup-container form select,
+.signup-container form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.signup-container form input[type="radio"] {
+    margin-right: 10px;
+}
+
+.signup-container form input:focus,
+.signup-container form select:focus,
+.signup-container form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Custom styling for text inputs */
+.signup-container form .textinput.form-control {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Custom styling for radio buttons */
+.signup-container form .form-check-input {
+    margin-right: 5px;
+}
+
+.signup-container form .form-check-label {
+    margin-right: 15px;
+}
+
+/* Submit and Cancel buttons */
+.signup-container form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.signup-container form input[type="submit"]:last-of-type {
+    background-color: #e74c3c;
+}
+
+.signup-container form input[type="submit"]:last-of-type:hover {
+    background-color: #c0392b;
+}
+
+/* Link styling */
+.signup-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+.signup-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #95a5a6;
+    font-size: 14px;
+}
+	

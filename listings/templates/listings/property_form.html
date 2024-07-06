@@ -1,12 +1,30 @@
-{% extends "base_bootstrap.html" %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'css/property_form.css' %}" >
+    <link rel="stylesheet" href= "{% static 'css/navbar.css' %}" >
+</head>
+
 {% block content %}
-<p>
-  {% load crispy_forms_tags %}
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Submit">
-    <input type="submit" value="Cancel" onclick="window.location.href='{% url 'listings:all' %}';return false;">
-  </form>
-</p>
+
+   {% include 'navbar.html' %}
+
+   <div class="signup-container">
+
+	<p>
+  		{% load crispy_forms_tags %}
+ 		<form action="" method="post">
+    			{% csrf_token %}
+    			{{ form|crispy }}
+                           
+    			<input type="submit" value="Submit">
+    			<input type="submit" value="Cancel" onclick="window.location.href='{% url 'listings:all' %}';return false;">
+  		</form>
+	</p>
+
+   </div>
+
+   <script src={% static "js/navbar.js" %} ></script>
 {% endblock %}
