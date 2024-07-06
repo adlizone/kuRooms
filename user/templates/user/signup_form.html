@@ -1,15 +1,24 @@
-{% extends 'base_bootstrap.html' %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
+<head>
+
 
 {% load crispy_forms_tags %}
 
-{% block title %} Create an Account {% endblock %}
 
 {% block content %}
+
+    {% include 'navbar.html' %}
 
     <form method = "POST" action="">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" >SignUp</button>
     </form>
+
+    <script src={% static "js/navbar.js" %} ></script>
 
 {% endblock %}
