@@ -34,13 +34,15 @@
                 {% endif %}
 
                 <div class="property-actions">   
-                     
+                   
+                       (<a href="{% url 'listings:update' property.id %}">Edit</a> |
+                       <a href="{% url 'listings:delete' property.id %}">Delete</a>) 
                 </div>
             </div>
           {% endfor %}
         </div>
         {% else %}
-          <p>There are no properties in the database.</p>
+          <p>There are no rooms in your name.</p>
         {% endif %}
         <a href="{% url 'listings:create' %}" class="add-accommodation">Add an Accommodation</a>
         </div>
