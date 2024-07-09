@@ -1,3 +1,8 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 {% extends "base_bootstrap.html" %}
 {% block content %}
 
@@ -8,6 +13,7 @@
    <form action="", method="post">
 	{% csrf_token %}
 	<input type="submit" value="Yes, delete">
+        <input type="submit" value="Cancel" onclick="window.location.href='{% url 'user:all' %}';return false;">
    </form>
 
 {% endblock %}

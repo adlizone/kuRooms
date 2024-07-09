@@ -13,13 +13,13 @@ class MainView(OwnerListView):
 class PropertyCreate(OwnerCreateView):
     model = Property
     form_class = PropertyForm
-    success_url = reverse_lazy("listings:all")
+    success_url = reverse_lazy("user:all")
 
 class PropertyUpdate(OwnerUpdateView):
     model = Property
-    fields = ["title", "address","type" "contact_1", "contact_2", "rent_per_month"]
-    success_url = reverse_lazy("listings:all")
+    fields = ["title", "address", "type", "contact_1", "contact_2", "rent_per_month"]
+    success_url = reverse_lazy("user:all")
 
 class PropertyDelete(OwnerDeleteView):
     model = Property
-    success_url = reverse_lazy("listings:all")
+    success_url = reverse_lazy("user:all")
