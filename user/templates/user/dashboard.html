@@ -7,6 +7,29 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'listings/main_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    <style>
+
+          .fixed-bottom {
+           position: fixed;
+           bottom: 20px;
+           right: 20px;
+           z-index: 1000;
+           background: #3498db;
+           color: white;
+           padding: 10px 15px;
+           border-radius: 5px;
+           text-decoration: none;
+           }
+
+          .fixed-bottom:hover {
+           background: #2980b9;
+           }
+  
+    </style>
+
+
+
 </head>
 <body>
    
@@ -44,7 +67,7 @@
         {% else %}
           <p>There are no rooms in your name.</p>
         {% endif %}
-        <a href="{% url 'listings:create' %}" class="add-accommodation">Add an Accommodation</a>
+        <a href="{% url 'listings:create' %}" class="add-accommodation fixed-bottom">Add an Accommodation</a>
         </div>
     </body>
    
