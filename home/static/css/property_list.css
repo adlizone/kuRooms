@@ -39,10 +39,17 @@ body {
 .property-item {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
+}
+
+.property-item:nth-child(odd) {
+    background: #ffffff;
+}
+
+.property-item:nth-child(even) {
+    background: #f2f2f2;
 }
 
 .property-item:hover {
@@ -102,14 +109,20 @@ body {
 
 /* Style the action links (Edit, Delete) */
 .property-actions a {
+    display: inline-block;
     margin-right: 10px;
+    padding: 5px 10px;
     font-size: 0.9em;
     font-family: 'Arial', sans-serif;
-    color: #3498db;
+    color: white;
+    background-color: #3498db;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
 .property-actions a:hover {
-    color: #2980b9;
+    background-color: #2980b9;
 }
 
 /* Style the Add an Accommodation link */

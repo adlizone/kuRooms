@@ -34,10 +34,10 @@
                     <p class="property-rent">Rent {{ property.rent_per_month }} per/m</p>
                     {% endif %}
                     <div class="property-actions">
-                      
-                        (<a href="{% url 'listings:update' property.id %}">Edit</a> |
-                        <a href="{% url 'listings:delete' property.id %}">Delete</a>)
-
+                        
+                        <a href="{% url 'listings:update' property.id %}">Edit</a> | 
+                        <a href="{% url 'listings:delete' property.id %}">Delete</a> 
+                       
                     </div>
                 </div>
             </div>
