@@ -16,14 +16,27 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+import os
+from dotenv import load_dotenv
+env_path = load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv(env_path)
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o=m-27wv9@=fhy!$61=)5*zsfns(#3p)_bv-=6dw24p47bgby&'
+#SECRET_KEY = 'django-insecure-o=m-27wv9@=fhy!$61=)5*zsfns(#3p)_bv-=6dw24p47bgby&'
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',
+    "django-insecure-o=m-27wv9@=fhy!$61=)5*zsfns(#3p)_bv-=6dw24p47bgby&")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+#DEBUG = True
+
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = []
 
