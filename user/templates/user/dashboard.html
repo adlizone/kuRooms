@@ -5,72 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Listings</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'listings/main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property_list.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-
-    <style>
-
-          .fixed-bottom {
-           position: fixed;
-           bottom: 20px;
-           right: 20px;
-           z-index: 1000;
-           background: #3498db;
-           color: white;
-           padding: 10px 15px;
-           border-radius: 5px;
-           text-decoration: none;
-           }
-
-          .fixed-bottom:hover {
-           background: #2980b9;
-           }
-  
-    </style>
-
-
-
 </head>
 <body>
-   
-   {% include 'navbar.html' %}
-   
+    {% include 'navbar.html' %}
     <div class="container">
         {% block content %}
+       
+        <h1>Your Rooms</h1>
+
         {% if property_list %}
         <div class="property-grid">
-          {% for property in property_list %}
+            {% for property in property_list %}
             <div class="property-item">
-                <p><strong>{{ property.title }}</strong></p>
-                <p>{{ property.address }}</p>
-
-                {% if property.type != 'Both' %}
-                	<p>{{ property.type }}</p>  
+                {% if property.image_url %}
+                <img src="{{ property.image_url }}" alt="{{ property.title }}" class="property-image">
                 {% endif %}
+                <div class="property-details">
+                    <p class="property-title"><strong>{{ property.title }}</strong></p>
+                    <p class="property-address">{{ property.address }}</p>
+                    {% if property.type != 'Both' %}
+                    <p class="property-type">{{ property.type }}</p>
+                    {% endif %}
+                    <p class="property-contact">{{ property.contact_1 }}</p>
+                    <p class="property-contact">{{ property.contact_2 }}</p>
+                    {% if property.rent_per_month %}
+                    <p class="property-rent">Rent {{ property.rent_per_month }} per/m</p>
+                    {% endif %}
+                    <div class="property-actions">
+                      
+                        (<a href="{% url 'listings:update' property.id %}">Edit</a> |
+                        <a href="{% url 'listings:delete' property.id %}">Delete</a>)
 
-                <p>{{ property.contact_1 }}</p>
-
-                <p>{{ property.contact_2 }}</p>
-                 
-                {% if property.rent_per_month %}
-                    <p>Rent  {{ property.rent_per_month }}  per/m</p>
-                {% endif %}
-
-                <div class="property-actions">   
-                   
-                       (<a href="{% url 'listings:update' property.id %}">Edit</a> |
-                       <a href="{% url 'listings:delete' property.id %}">Delete</a>) 
+                    </div>
                 </div>
             </div>
-          {% endfor %}
+            {% endfor %}
         </div>
         {% else %}
-          <p>There are no rooms in your name.</p>
+        <p>There are no properties in the database.</p>
         {% endif %}
         <a href="{% url 'listings:create' %}" class="add-accommodation fixed-bottom">Add an Accommodation</a>
-        </div>
-    </body>
-   
-    <script src={% static "js/navbar.js" %} ></script>    
-
-{% endblock %}
+    </div>
+    <script src={% static "js/navbar.js" %}></script>
+    {% endblock %}
+</body>
+</html>

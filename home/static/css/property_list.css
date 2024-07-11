@@ -1,0 +1,156 @@
+/* Reset some basic elements */
+body, h1, ul, li, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the font family for the entire page */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Style the main container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the property grid */
+.property-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .property-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Style each property item */
+.property-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.property-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Style the property image */
+.property-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Style the property details */
+.property-details {
+    padding: 15px;
+}
+
+.property-title {
+    font-size: 1.4em;
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.property-address {
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    color: #3498db;
+    background-color: #ecf0f1;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.property-type {
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+.property-contact {
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    color: #16a085;
+    margin-bottom: 5px;
+}
+
+.property-rent {
+    font-size: 1.2em;
+    font-family: 'Verdana', sans-serif;
+    color: #7f8c8d;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style the action links (Edit, Delete) */
+.property-actions a {
+    margin-right: 10px;
+    font-size: 0.9em;
+    font-family: 'Arial', sans-serif;
+    color: #3498db;
+}
+
+.property-actions a:hover {
+    color: #2980b9;
+}
+
+/* Style the Add an Accommodation link */
+.add-accommodation {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.add-accommodation:hover {
+    background: #2980b9;
+}
+
+/* Style the login/logout links */
+.login-logout {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-logout a {
+    margin: 0 10px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+          .fixed-bottom {
+           position: fixed;
+           bottom: 20px;
+           right: 20px;
+           z-index: 1000;
+           background: #3498db;
+           color: white;
+           padding: 10px 15px;
+           border-radius: 5px;
+           text-decoration: none;
+           }
+
+          .fixed-bottom:hover {
+           background: #2980b9;
+           }
