@@ -144,7 +144,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import dj_database_url
 
 if 'DATABASE_URL' in os.environ:
-    DATABASES['dafault'] = dj_database_url.config(
-        conn_max_age=500,
-        conn_health_checks=True,
-    )
+    new_db = dict()
+    new_db['ENGINE'] = os.environ.get('ENGINE')
+    new_db['NAME'] = os.environ.get('NAME')
+    new_db['USER'] = os.environ.get('USER')
+    new_db['PASSWORD'] = os.environ.get('PASSWORD')
+    new_db['HOST'] = os.environ.get('HOST')
+    
+    DATABASES['default'] = new_db
