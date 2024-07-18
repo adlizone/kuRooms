@@ -13,7 +13,7 @@ class PropertyForm(ModelForm):
 
     class Meta:
         model = Property
-        fields = ["title", "type", "address", "contact_1", "contact_2","rent_per_month"] 
+        fields = ["title", "type", "address", "contact_1", "contact_2","rent_per_month","picture"] 
 
     def is_ten_digit_number(self, string):
         pattern = r'^\d{10}$'

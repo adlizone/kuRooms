@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django import forms
+from .compress import compress_image
 
 class Property(models.Model):
     """blank set to true makes the corresponding form fields not required"""
@@ -22,8 +23,16 @@ class Property(models.Model):
     contact_2 = models.CharField(max_length=10, blank=True)
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    picture = models.ImageField(upload_to="pictures", blank=True, null=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title 
+        return self.title
+
+    def save(self, *args, **kwargs):
+        # Check if the image is being updated
+        if self.picture:
+            self.picture = compress_image(self.picture)
+        super().save(*args, **kwargs) 

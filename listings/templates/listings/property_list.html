@@ -17,8 +17,8 @@
         <div class="property-grid">
             {% for property in property_list %}
             <div class="property-item">
-                {% if property.image_url %}
-                <img src="{{ property.image_url }}" alt="{{ property.title }}" class="property-image">
+                {% if property.picture %}
+                <img src="{{ property.picture.url }}" alt="{{ property.title }}" class="property-image">
                 {% endif %}
                 <div class="property-details">
                     <p class="property-title"><strong>{{ property.title }}</strong></p>
