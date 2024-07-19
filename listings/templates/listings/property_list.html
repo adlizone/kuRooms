@@ -28,8 +28,11 @@
                     {% endif %}
                     <p class="property-contact">{{ property.contact_1 }}</p>
                     <p class="property-contact">{{ property.contact_2 }}</p>
+                    {% if property.status == "Rooms Not-available" %}
+                        <p class="property-status"> {{ property.status }} </p>
+                    {% endif %}
                     {% if property.rent_per_month %}
-                    <p class="property-rent">Rent {{ property.rent_per_month }} per/m</p>
+                            <p class="property-rent">Rent {{ property.rent_per_month }} per/m</p>
                     {% endif %}
                     <div class="property-actions">
                       

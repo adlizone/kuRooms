@@ -11,9 +11,15 @@ class PropertyForm(ModelForm):
     )
     type.choices = Property.CATEGORIES
 
+    status = forms.ChoiceField(
+        required=False,
+        widget=forms.RadioSelect,
+    )
+    status.choices = Property.AVAIL
+
     class Meta:
         model = Property
-        fields = ["title", "type", "address", "contact_1", "contact_2","rent_per_month","picture"] 
+        fields = ["title", "type", "address", "contact_1", "contact_2","status", "rent_per_month","picture"] 
 
     def is_ten_digit_number(self, string):
         pattern = r'^\d{10}$'

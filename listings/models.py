@@ -16,7 +16,14 @@ class Property(models.Model):
     }
     
     type = models.CharField(max_length=20,choices=CATEGORIES, null=True, blank=True)
-    
+
+    AVAIL = {
+
+        "Rooms Available" : "Rooms Available",
+        "Rooms Not-available" : "Rooms Not-Available",
+    }
+
+    status = models.CharField(max_length=20, choices=AVAIL, null=True, blank=True)   
     rent_per_month = models.CharField(max_length=7, null=True,blank=True)
 
     contact_1 = models.CharField(max_length=10)
