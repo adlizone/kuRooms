@@ -1,23 +1,21 @@
+import random
 from django.shortcuts import render
 from django.urls import reverse_lazy
-
+from django.http import JsonResponse
 from django.views import View
 from django.http import HttpResponse
 from .models import Property
 from .owner import OwnerListView, OwnerDetailView, OwnerCreateView, OwnerUpdateView, OwnerDeleteView
 from .forms import PropertyForm
-import random
-
+from listings.serializers import serialize_properties
 class MainView(View):
-    
-    template_name = "listings/property_list.html"
 
     def get(self, request):
         properties = Property.objects.all()
         properties = list(properties)
         random.shuffle(properties)
-        ctx = {"property_list" : properties}    
-        return render(request, self.template_name, ctx)
+        
+        return JsonResponse(serialize_properties(properties), safe=False)
 
 class PropertyCreate(OwnerCreateView):
     model = Property
